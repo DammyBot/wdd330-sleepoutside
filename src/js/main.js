@@ -1,14 +1,8 @@
+import ProductData from "./ProductData.mjs";
 import ProductList from "./ProductList.mjs";
-const url = "./src/public/json/tents.json";
 
-async function getData(url){
-    const data = fetch(url);
-    if(data.ok){
-        const result = data.json();
-        console.log(result);
-        const product = new ProductList("electronics", result, document.getElementById("productList"));
-        product.init();
-    }
-}
+const dataSource = new ProductData("tents");
+const element = document.querySelector(".product-list");
+const listing = new ProductList("Tents", dataSource, element);
 
-getData(url);
+listing.init();
