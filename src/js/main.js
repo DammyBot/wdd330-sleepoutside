@@ -6,3 +6,6 @@ const element = document.querySelector(".product-list");
 const listing = new ProductList("Tents", dataSource, element);
 
 listing.init();
+document.addEventListener("DOMContentLoaded",()=>{
+    alert("Welcome to Sleep Outside");
+})
