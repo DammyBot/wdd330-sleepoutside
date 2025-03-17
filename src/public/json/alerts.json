@@ -1,5 +1,7 @@
-[{
+[
+  {
     "message": "This is a test alert",
     "background": "darkblue",
     "color": "white"
-}]
+  }
+]
