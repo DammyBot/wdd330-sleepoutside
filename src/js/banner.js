@@ -1,11 +1,12 @@
 const dialog = document.getElementById("cta");
 const close = document.querySelector(".close");
 
-const date = localStorage.getItem("date") || Date.now();
+const date = Number(localStorage.getItem("date")) || 0;
 const now = Date.now();
+const oneDay = 24*60*60*1000;
 
 document.addEventListener("DOMContentLoaded", ()=> {
-    if(date - now == 0){
+    if(now - date > oneDay) {
         dialog.showModal();
     }
 })
