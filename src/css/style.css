@@ -317,7 +317,7 @@ fieldset legend {
   padding: 0.5em;
 }
 
-.summary {
+.order__summary {
   border: 1px solid var(--light-grey);
   border-radius: 5px;
   padding: .5em;

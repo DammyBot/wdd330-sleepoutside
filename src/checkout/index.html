@@ -10,7 +10,7 @@
   <title>Sleep Outside | Checkout</title>
 
   <link rel="stylesheet" href="../css/style.css" />
-  <script src="../js/CheckoutProcess.mjs" type="module"></script>
+  <script src="../js/checkout.mjs" type="module"></script>
 </head>
 
 <body>
@@ -20,46 +20,48 @@
     <section class="products">
       <h2>Review & Place your Order</h2>
     </section>
-    
-    <form method="post">
+
+    <form name="checkout">
+      <input type="hidden" name="orderDate" id="orderDate">
       <fieldset>
-        <label>First Name: <input type="text" placeholder="First Name" autocomplete="given-name" required /> </label>
-        <label>Last Name: <input type="text" placeholder="Last Name" autocomplete="family-name" required /> </label>
-        <legend>Name</legend>
+        <label>First Name: <input type="text" placeholder="First Name" autocomplete="given-name" required
+            name="fname" /> </label>
+        <label>Last Name: <input type="text" placeholder="Last Name" autocomplete="family-name" required name="lname" />
+        </label>
+        <label>Street Address: <input type="text" placeholder="Street Address" autocomplete="address-line1" required
+            name="street" />
+        </label>
+        <label>City: <input type="text" placeholder="City" required name="city" /> </label>
+        <label>State: <input type="text" placeholder="State" required name="state" /> </label>
+        <label>Zip Code: <input type="text" placeholder="Zip Code" autocomplete="postal-code" required name="zip" id="zip" />
+        </label>
+        <legend>Customer Details</legend>
       </fieldset>
 
       <fieldset>
-        <label>Street Address: <input type="text" placeholder="Street Address" autocomplete="address-line1" required />
+        <label>Credit Card Number: <input type="num" placeholder="Credit Card Number" autocomplete="cc-number"
+            maxlength="16" required name="cardNumber" />
         </label>
-        <label>City: <input type="text" placeholder="City" required /> </label>
-        <label>State: <input type="text" placeholder="State" required /> </label>
-        <label>Zip Code: <input type="text" placeholder="Zip Code" autocomplete="postal-code" required /> </label>
-        <legend>Address</legend>
-      </fieldset>
-
-      <fieldset>
-        <label>Credit Card Number: <input type="number" placeholder="Credit Card Number" autocomplete="cc-number"
-            required />
-        </label>
-        <label>Expiration Date: <input type="date" required /> </label>
-        <label>Security Code: <input type="num" placeholder="Security Code" autocomplete="cc-csc" maxlength="3"
-            required /> </label>
+        <label>Expiration Date: <input type="date" required name="expiration" /> </label>
+        <label>Security Code: <input type="num" placeholder="Security Code" autocomplete="cc-csc" maxlength="3" required
+            name="code" /> </label>
         <legend>Payment</legend>
       </fieldset>
 
-      <button type="submit">Checkout</button>
-    </form>
+      <fieldset class="checkout-summary">
+        <legend>Order Summary</legend>
 
-    <section class="products summary">
-      <h3>Order Summary</h3>
-      <ul class="product-list"></ul>
-      <div class="total">
-        <p>Subtotal: $<span id="total"></span></p>
-        <p>Tax: $<span id="tax"></span></p>
-        <p>Shipping Estimate: $<span id="shipping"></span></p>
-        <p>Order Total: $<span id="final-total"></span></p>
-      </div>
-    </section>
+        <div class="order__summary">
+          <div>Items: <span id="num-items"></span></div>
+          <div>Subtotal: <span id="cartTotal"></span></div>
+          <div>Tax: <span id="tax"></span></div>
+          <div>Shipping: <span id="shipping"></span></div>
+          <div>Total: <span id="orderTotal"></span></div>
+        </div>
+      </fieldset>
+
+      <button type="submit" id="checkoutSubmit">Checkout</button>
+    </form>
   </main>
 
   <footer>&copy;NOT a real business</footer>

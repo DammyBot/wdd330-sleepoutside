@@ -1,4 +1,4 @@
-import ProductData from "../../js/ProductData.mjs";
+import ExternalServices from "../../js/ExternalServices.mjs";
 import ProductList from "../../js/ProductList.mjs";
 import { loadHeaderFooter, getParam } from "../../js/utils.mjs";
 
@@ -8,7 +8,7 @@ const category = getParam("product");
 const title = document.querySelector(".title");
 title.textContent = category.toUpperCase();
 // first create an instance of the ProductData class.
-const dataSource = new ProductData();
+const dataSource = new ExternalServices();
 const data = dataSource.getData(category);
 // then get the element you want the product list to render in
 const listElement = document.querySelector(".product-list");
