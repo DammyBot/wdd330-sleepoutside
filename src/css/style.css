@@ -98,7 +98,7 @@ button {
   padding: 0.5em 2em;
   background-color: var(--secondary-color);
   color: white;
-  margin: auto;
+  margin: .25em auto;
   display: block;
   border: 0;
   font-size: var(--large-font);
@@ -243,24 +243,30 @@ dialog {
   margin: auto;
   position: relative;
 }
+
 dialog h1 {
   font-size: 1.5em;
 }
+
 dialog h2 {
   font-size: 1.2em;
 }
+
 dialog h3 {
   font-size: 1em;
 }
+
 dialog p,
 dialog li {
   font-size: var(--small-font);
   list-style-type: none;
 }
+
 dialog ul {
   padding: 0;
   margin: 0;
 }
+
 dialog a {
   text-decoration: none;
   color: var(--light-grey);
@@ -271,12 +277,52 @@ dialog a {
   border-radius: 5px;
   display: block;
 }
+
 dialog button {
   position: absolute;
   top: 10px;
   right: 10px;
   border-radius: 5px;
   padding: 10px;
+}
+
+form {
+  margin: 5px;
+}
+
+label input {
+  display: block;
+  width: 100%;
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+  border-left: 5px solid var(--secondary-color);
+  font-size: var(--font-body);
+  padding: .25em;
+}
+
+label {
+  font-size: var(--small-font);
+  margin: 0.5em 0;
+  font-weight: lighter;
+}
+
+fieldset {
+  border-radius: 5px;
+  border: 1px solid var(--light-grey);
+}
+
+fieldset legend {
+  font-size: var(--small-font);
+  font-weight: bold;
+  padding: 0.5em;
+}
+
+.summary {
+  border: 1px solid var(--light-grey);
+  border-radius: 5px;
+  padding: .5em;
+  margin: 1em;
+  font-size: var(--small-font);
 }
 
 @media screen and (min-width: 500px) {

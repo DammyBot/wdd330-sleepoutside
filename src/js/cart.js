@@ -1,16 +1,28 @@
-import { getLocalStorage } from "./utils.mjs";
+import { getLocalStorage, loadHeaderFooter } from "./utils.mjs";
 
-function renderCartContents() {
+loadHeaderFooter();
+
+(function renderCartContents() {
   const cartItems = getLocalStorage("so-cart");
   const htmlItems = cartItems.map((item) => cartItemTemplate(item));
   document.querySelector(".product-list").innerHTML = htmlItems.join("");
+  document.querySelector(".total").innerHTML = `<p><b>Total: $${getTotal()}</b></p>`
+})();
+
+function getTotal(){
+  const items = getLocalStorage("so-cart");
+  let total = 0;
+  items.forEach(item => {
+    total += Number(item.FinalPrice);
+  });
+  return total;
 }
 
 function cartItemTemplate(item) {
   const newItem = `<li class="cart-card divider">
   <a href="#" class="cart-card__image">
     <img
-      src="${item.Image}"
+      src="${item.Images.PrimarySmall}"
       alt="${item.Name}"
     />
   </a>
@@ -25,4 +37,4 @@ function cartItemTemplate(item) {
   return newItem;
 }
 
-renderCartContents();
+// renderCartContents();
