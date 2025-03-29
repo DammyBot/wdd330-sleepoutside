@@ -1,4 +1,4 @@
-import { loadHeaderFooter } from "./utils.mjs";
+import { loadHeaderFooter, setLocalStorage } from "./utils.mjs";
 import CheckoutProcess from "./CheckoutProcess.mjs";
 
 loadHeaderFooter();
@@ -12,8 +12,16 @@ document
   .addEventListener("blur", order.calculateOrderTotal.bind(order));
 
 // listening for click on the button
-document.querySelector("#checkoutSubmit").addEventListener("click", (e) => {
+document.querySelector("#checkoutSubmit").addEventListener("click", async (e) => {
   e.preventDefault();
-
-  order.checkout();
+  const myForm = document.forms[0];
+  const check_status = myForm.checkValidity();
+  if(check_status){
+    console.log(order);
+    await order.checkout();
+    window.location.href = "../checkout/success.html";
+    setLocalStorage("so-cart", []);
+  } else {
+    alert("Please fill out all fields.");
+  }
 });
